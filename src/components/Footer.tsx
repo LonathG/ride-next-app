@@ -1,8 +1,5 @@
 import React from "react";
 
-import Image from "next/image";
-
-import logo from "../../public/Webminds-dark.webp";
 import ParallaxText from "./ParallaxText";
 
 interface FooterProp {

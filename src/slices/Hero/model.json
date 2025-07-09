@@ -16,8 +16,8 @@
           "type": "StructuredText",
           "config": {
             "label": "Heading",
-            "placeholder": "",
-            "allowTargetBlank": true,
+            "placeholder": "HELLO WORLD",
+            "allowTargetBlank": false,
             "single": "heading1"
           }
         },

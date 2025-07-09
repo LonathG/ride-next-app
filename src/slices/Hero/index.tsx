@@ -1,8 +1,5 @@
 "use client";
 
-import { asText, Content } from "@prismicio/client";
-import { PrismicNextImage } from "@prismicio/next";
-import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -18,15 +15,7 @@ import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-/**
- * Props for `Hero`.
- */
-export type HeroProps = SliceComponentProps<Content.HeroSlice>;
-
-/**
- * Component for "Hero" Slices.
- */
-const Hero = ({ slice }: HeroProps): JSX.Element => {
+const Hero = (): JSX.Element => {
   const ready = useStore((state) => state.ready);
   const isDesktop = useMediaQuery("(min-width: 768px)", true);
 
@@ -102,11 +91,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
   );
 
   return (
-    <Bounded
-      data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}
-      className="hero opacity-0"
-    >
+    <Bounded className="hero opacity-0">
       {isDesktop && (
         <View className="hero-scene pointer-events-none sticky top-0 z-50 -mt-[100vh] hidden h-screen w-screen md:block">
           <Scene />
@@ -119,36 +104,40 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
           <div className="grid auto-rows-min place-items-center text-center">
             <h1 className="hero-header text-7xl font-black uppercase leading-[.8] text-orange-500 md:text-[9rem] lg:text-[13rem]">
               <TextSplitter
-                text={asText(slice.primary.heading)}
+                text="RIDE DRINK"
                 wordDisplayStyle="block"
                 className="hero-header-word"
               />
             </h1>
             <div className="hero-subheading mt-12 text-5xl font-semibold text-sky-950 lg:text-6xl">
-              <PrismicRichText field={slice.primary.subheading} />
+              Fuel your hustle with flavor.
             </div>
             <div className="hero-body text-2xl font-normal text-sky-950">
-              <PrismicRichText field={slice.primary.body} />
+              A natural energy drink crafted for creators, athletes, and thinkers.
             </div>
             <Button
-              buttonLink={slice.primary.button_link}
-              buttonText={slice.primary.button_text}
+              buttonLink={{
+                link_type: "Web",
+                url: "/shop",
+              }}
+              buttonText="Shop Now"
               className="hero-button mt-12"
             />
           </div>
         </div>
 
         <div className="text-side relative z-[80] grid h-screen items-center gap-4 md:grid-cols-2">
-          <PrismicNextImage
+          <img
             className="w-full md:hidden"
-            field={slice.primary.cans_image}
+            src="/images/can-mobile.png"
+            alt="RIDE Drink Can"
           />
           <div>
             <h2 className="text-side-heading text-balance text-6xl font-black uppercase text-sky-950 lg:text-8xl">
-              <TextSplitter text={asText(slice.primary.second_heading)} />
+              <TextSplitter text="PURE. FRESH. POWERFUL." />
             </h2>
             <div className="text-side-body mt-4 max-w-xl text-balance text-xl font-normal text-sky-950">
-              <PrismicRichText field={slice.primary.second_body} />
+              Packed with vitamins and real fruit extracts — no artificial junk. Just the kick you need.
             </div>
           </div>
         </div>

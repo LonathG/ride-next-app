@@ -17,7 +17,7 @@
         "type": "StructuredText",
         "config": {
           "label": "Title",
-          "placeholder": "",
+          "placeholder": "jgfhgfhf",
           "allowTargetBlank": true,
           "single": "heading1"
         }

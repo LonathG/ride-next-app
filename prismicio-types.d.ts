@@ -19,7 +19,7 @@ interface PageDocumentData {
    * Title field in *Page*
    *
    * - **Field Type**: Title
-   * - **Placeholder**: *None*
+   * - **Placeholder**: jgfhgfhf
    * - **API ID Path**: page.title
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
@@ -248,7 +248,7 @@ export interface HeroSliceDefaultPrimary {
    * Heading field in *Hero → Default → Primary*
    *
    * - **Field Type**: Title
-   * - **Placeholder**: *None*
+   * - **Placeholder**: HELLO WORLD
    * - **API ID Path**: hero.default.primary.heading
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */

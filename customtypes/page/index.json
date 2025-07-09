@@ -27,9 +27,6 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "big_text": {
-              "type": "SharedSlice"
-            },
             "alternating_text": {
               "type": "SharedSlice"
             },

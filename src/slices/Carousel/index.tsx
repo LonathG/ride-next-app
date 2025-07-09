@@ -91,9 +91,9 @@ const Carousel = (): JSX.Element => {
 
   return (
     <section className="carousel relative grid h-screen grid-rows-[auto,4fr,auto] justify-center overflow-hidden bg-white py-12 text-white">
-      <div className="background pointer-events-none absolute inset-0 bg-[#710523] opacity-50" />
+      <div className="background pointer-events-none absolute inset-0 bg-[#4169E1] opacity-50" />
 
-      <WavyCircles className="absolute left-1/2 top-1/2 h-[120vmin] -translate-x-1/2 -translate-y-1/2 text-[#710523]" />
+      <WavyCircles className="absolute left-1/2 top-1/2 h-[120vmin] -translate-x-1/2 -translate-y-1/2 text-[#4169E1]" />
 
       <h2 className="relative text-center text-5xl font-bold">
         Choose Your Flavor
@@ -110,6 +110,7 @@ const Carousel = (): JSX.Element => {
           <Center position={[0, 0, 1.5]}>
             <FloatingCan
               ref={sodaCanRef}
+              scale={1.5}
               floatIntensity={0.3}
               rotationIntensity={1}
               flavor={FLAVORS[currentFlavorIndex].flavor}

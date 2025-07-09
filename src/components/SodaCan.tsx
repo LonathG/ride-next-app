@@ -42,27 +42,32 @@ export function SodaCan({
 
   const label = labels[flavor];
 
-  return (
-    <group {...props} dispose={null} scale={scale} rotation={[0, -Math.PI, 0]}>
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={(nodes.cylinder as THREE.Mesh).geometry}
-        material={metalMaterial}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={(nodes.cylinder_1 as THREE.Mesh).geometry}
-      >
-        <meshStandardMaterial roughness={0.15} metalness={0.7} map={label} />
-      </mesh>
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={(nodes.Tab as THREE.Mesh).geometry}
-        material={metalMaterial}
-      />
-    </group>
-  );
+return (
+  <group
+    {...props}
+    dispose={null}
+    scale={[scale, scale * 1.3, scale]}
+    rotation={[0, -Math.PI, 0]}
+  >
+    <mesh
+      castShadow
+      receiveShadow
+      geometry={(nodes.cylinder as THREE.Mesh).geometry}
+      material={metalMaterial}
+    />
+    <mesh
+      castShadow
+      receiveShadow
+      geometry={(nodes.cylinder_1 as THREE.Mesh).geometry}
+    >
+      <meshStandardMaterial roughness={0.15} metalness={0.7} map={label} />
+    </mesh>
+    <mesh
+      castShadow
+      receiveShadow
+      geometry={(nodes.Tab as THREE.Mesh).geometry}
+      material={metalMaterial}
+    />
+  </group>
+);
 }

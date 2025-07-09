@@ -149,8 +149,8 @@ export default function Scene({ sentence, flavor }: SkyDiveProps) {
 
       {/* Clouds */}
       <Clouds ref={cloudsRef}>
-        <Cloud ref={cloud1Ref} bounds={[10, 10, 2]} />
-        <Cloud ref={cloud2Ref} bounds={[10, 10, 2]} />
+        <Cloud ref={cloud1Ref} bounds={[10, 10, 2]}/>
+        <Cloud ref={cloud2Ref} bounds={[10, 10, 2]}/>
       </Clouds>
 
       {/* Text */}
@@ -177,6 +177,9 @@ function ThreeText({
   const material = new THREE.MeshLambertMaterial();
   const isDesktop = useMediaQuery("(min-width: 950px)", true);
 
+  // Base spacing between words
+  const wordSpacing = isDesktop ? 4 : 2.5;
+
   return words.map((word: string, wordIndex: number) => (
     <Text
       key={`${wordIndex}-${word}`}
@@ -187,6 +190,7 @@ function ThreeText({
       fontWeight={900}
       anchorX={"center"}
       anchorY={"middle"}
+      position-x={wordIndex * wordSpacing} 
       characters="ABCDEFGHIJKLMNOPQRSTUVWXYZ!,.?'"
     >
       {word}

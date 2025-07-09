@@ -1,17 +1,43 @@
 import React from "react";
-import { FizziLogo } from "./FizziLogo";
 
-type Props = {};
+import Image from "next/image";
 
-export default function Footer({}: Props) {
-  return (<>
-    <footer className="bg-[#346ec9] text-[#e1e6ed]">
-      <div className="relative mx-auto flex w-full max-w-4xl justify-center px-4 py-10">
-        <FizziLogo />
-        <div className="absolute right-24 top-0 size-28 origin-center -translate-y-14 md:size-48 md:-translate-y-28">
+import logo from "../../public/Webminds-dark.webp";
+import ParallaxText from "./ParallaxText";
+
+interface FooterProp {
+  bgColorTop: string;
+  bgColorMid?: string;
+  bgColorBottom: string;
+}
+
+const Footer: React.FC<FooterProp> = ({
+  bgColorBottom,
+  bgColorTop,
+  bgColorMid,
+}) => {
+  return (
+    <div
+      className="w-screen h-fit z-10 relative font-AlbertSans_Regular bg-[#4169E1] text-white"
+      style={{
+        background: `linear-gradient(to bottom,${bgColorTop} 0%, ${bgColorMid} 20%, ${bgColorBottom} 100%)`,
+      }}
+    >
+
+      <div className="w-full h-fit bg-green lg:px-24 opacity-80 flex justify-between items-center  text-sm font-extralight text-text px-4 md:px-8 relative -bottom-8">
+        <div>Sample Project By WebMinds Designs</div>
+        <div className="flex justify-end gap-12 ">
+          <div className="cursor-pointer hover:underline">Copyrights</div>
+          <div className="cursor-pointer hover:underline">Terms of Service</div>
         </div>
       </div>
-    </footer>
-    </>
+      <main className="flex flex-col items-center justify-center h-[360px]  bg-transparent text-text md:pb-0">
+        <ParallaxText baseVelocity={-1.5} fontSize="text-[300px]">
+          - Get In Touch -
+        </ParallaxText>
+      </main>
+    </div>
   );
-}
+};
+
+export default Footer;

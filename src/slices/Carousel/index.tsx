@@ -1,16 +1,10 @@
 "use client";
 
-import { Content } from "@prismicio/client";
-import {
-  PrismicRichText,
-  PrismicText,
-  SliceComponentProps,
-} from "@prismicio/react";
-import { Center, Environment, View } from "@react-three/drei";
 import { useRef, useState } from "react";
-import clsx from "clsx";
+import { Center, Environment, View } from "@react-three/drei";
 import { Group } from "three";
 import gsap from "gsap";
+import clsx from "clsx";
 
 import FloatingCan from "@/components/FloatingCan";
 import { SodaCanProps } from "@/components/SodaCan";
@@ -18,31 +12,46 @@ import { ArrowIcon } from "./ArrowIcon";
 import { WavyCircles } from "./WavyCircles";
 
 const SPINS_ON_CHANGE = 8;
+
 const FLAVORS: {
   flavor: SodaCanProps["flavor"];
   color: string;
   name: string;
+  price: string;
 }[] = [
-  { flavor: "blackCherry", color: "#710523", name: "Black Cherry" },
-  { flavor: "grape", color: "#572981", name: "Grape Goodness" },
-  { flavor: "lemonLime", color: "#164405", name: "Lemon Lime" },
+  {
+    flavor: "blackCherry",
+    color: "#4169E1",
+    name: "RIDE CLASSIC",
+    price: "LKR 350",
+  },
+  {
+    flavor: "grape",
+    color: "#FF69B4",
+    name: "Pink Lemonade",
+    price: "LKR 350",
+  },
+  {
+    flavor: "lemonLime",
+    color: "#FF0000",
+    name: "RED BERRY",
+    price: "LKR 350",
+  },
   {
     flavor: "strawberryLemonade",
-    color: "#690B3D",
-    name: "Strawberry Lemonade",
+    color: "#0B0B0B",
+    name: "GLOW APPLE",
+    price: "LKR 350",
   },
-  { flavor: "watermelon", color: "#4B7002", name: "Watermelon Crush" },
+  {
+    flavor: "watermelon",
+    color: "#ADD8E6",
+    name: "SUGAR-FREE",
+    price: "LKR 350",
+  },
 ];
 
-/**
- * Props for `Carousel`.
- */
-export type CarouselProps = SliceComponentProps<Content.CarouselSlice>;
-
-/**
- * Component for "Carousel" Slices.
- */
-const Carousel = ({ slice }: CarouselProps): JSX.Element => {
+const Carousel = (): JSX.Element => {
   const [currentFlavorIndex, setCurrentFlavorIndex] = useState(0);
   const sodaCanRef = useRef<Group>(null);
 
@@ -81,27 +90,22 @@ const Carousel = ({ slice }: CarouselProps): JSX.Element => {
   }
 
   return (
-    <section
-      data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}
-      className="carousel relative grid h-screen grid-rows-[auto,4fr,auto] justify-center overflow-hidden bg-white py-12 text-white"
-    >
+    <section className="carousel relative grid h-screen grid-rows-[auto,4fr,auto] justify-center overflow-hidden bg-white py-12 text-white">
       <div className="background pointer-events-none absolute inset-0 bg-[#710523] opacity-50" />
 
       <WavyCircles className="absolute left-1/2 top-1/2 h-[120vmin] -translate-x-1/2 -translate-y-1/2 text-[#710523]" />
 
       <h2 className="relative text-center text-5xl font-bold">
-        <PrismicText field={slice.primary.heading} />
+        Choose Your Flavor
       </h2>
 
       <div className="grid grid-cols-[auto,auto,auto] items-center">
-        {/* Left */}
         <ArrowButton
           onClick={() => changeFlavor(currentFlavorIndex + 1)}
           direction="left"
           label="Previous Flavor"
         />
-        {/* Can */}
+
         <View className="aspect-square h-[70vmin] min-h-40">
           <Center position={[0, 0, 1.5]}>
             <FloatingCan
@@ -119,7 +123,7 @@ const Carousel = ({ slice }: CarouselProps): JSX.Element => {
           />
           <directionalLight intensity={6} position={[0, 1, 1]} />
         </View>
-        {/* Right */}
+
         <ArrowButton
           onClick={() => changeFlavor(currentFlavorIndex - 1)}
           direction="right"
@@ -132,7 +136,7 @@ const Carousel = ({ slice }: CarouselProps): JSX.Element => {
           <p>{FLAVORS[currentFlavorIndex].name}</p>
         </div>
         <div className="mt-2 text-2xl font-normal opacity-90">
-          <PrismicRichText field={slice.primary.price_copy} />
+          {FLAVORS[currentFlavorIndex].price}
         </div>
       </div>
     </section>

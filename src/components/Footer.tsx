@@ -1,6 +1,5 @@
 import React from "react";
 import { FizziLogo } from "./FizziLogo";
-import TextPressure from './TextPressure';
 
 type Props = {};
 

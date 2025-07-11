@@ -68,7 +68,7 @@ const Hero = (): JSX.Element => {
             backgroundColor: "#FDE047",
           },
           {
-            backgroundColor: "#D9F99D",
+            backgroundColor: "#f6f6f6",
             overwrite: "auto",
           },
           1,

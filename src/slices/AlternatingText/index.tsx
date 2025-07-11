@@ -8,17 +8,18 @@ import clsx from "clsx";
 const alternatingTextData = [
   {
     heading: "Fuel Your Day",
-    body: "Start strong with a burst of clean energy. No crash, no compromise.",
+    body: "Start your morning with a clean, powerful boost of energy that helps you stay focused and alert. With zero crash and no compromise on ingredients, RIDE powers you through everything — from early meetings to late-night ideas.",
   },
   {
     heading: "Made for Movement",
-    body: "Designed to keep up with your active lifestyle — from gym to grind.",
+    body: "Whether you’re crushing it at the gym, hitting the trails, or grinding through work, RIDE is built to keep pace with your high-energy lifestyle. Stay energized, hydrated, and ready for whatever comes next.",
   },
   {
     heading: "Real Ingredients",
-    body: "No artificial junk. Just real fruit extracts, vitamins, and hydration.",
+    body: "Say goodbye to artificial flavors, chemicals, and sugar overload. RIDE is crafted with real fruit extracts, essential vitamins, and hydration-focused compounds to fuel your body naturally — and deliciously.",
   },
 ];
+
 
 const AlternatingText = (): JSX.Element => {
   return (

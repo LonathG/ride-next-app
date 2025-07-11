@@ -104,7 +104,7 @@ const Hero = (): JSX.Element => {
           <div className="grid auto-rows-min place-items-center text-center">
             <h1 className="hero-header text-7xl font-black uppercase leading-[.8] text-orange-500 md:text-[9rem] lg:text-[13rem]">
               <TextSplitter
-                text="RIDE DRINK"
+                text="RIDE ENERGY DRINK"
                 wordDisplayStyle="block"
                 className="hero-header-word"
               />
@@ -113,7 +113,7 @@ const Hero = (): JSX.Element => {
               Fuel your hustle with flavor.
             </div>
             <div className="hero-body text-2xl font-normal text-sky-950">
-              A natural energy drink crafted for creators, athletes, and thinkers.
+              An energy drink crafted for creators, athletes, and thinkers.
             </div>
             <Button
               buttonLink={{
